@@ -1,0 +1,32 @@
+<section class="row">
+  <form class="py-5" [formGroup]="loginForm" (ngSubmit)="formToSignIn()">
+    <h2>login now</h2>
+    <div>
+      <label class="my-2" for="email">Email :</label>
+      <input class="form-control" type="email" placeholder="Enter Your Email" formControlName="email">
+      <div *ngIf="loginForm.get('email')?.touched &&loginForm.get('email')?.errors" class="alert alert-danger">
+        <p *ngIf="loginForm.get('email')?.getError('required')">Email is required</p>
+        <p *ngIf="loginForm.get('email')?.getError('pattern')">Email must be atleast 4 letters and 2 numbers + gmail + .com</p>
+      </div>
+    </div>
+    <div>
+      <label class="my-2" for="password">Password</label>
+      <input class="form-control" type="password" placeholder="Enter Your Password" formControlName="password">
+      <div *ngIf="loginForm.get('password')?.touched &&loginForm.get('password')?.errors" class="alert alert-danger">
+        <p *ngIf="loginForm.get('password')?.getError('required')">Password is required</p>
+        <p *ngIf="loginForm.get('password')?.getError('pattern')">atleast 1 chrachter and 5 numbers</p>
+      </div>
+    </div>
+    <div class="d-flex mt-3 justify-content-between">
+
+      <a   class="text-decoration-none  fs-4 forget-password cursor-pointer" routerLink="/forgotpassword">Forget your Password ?</a>
+      <button
+      class="btn btn-outline-success">
+        login now
+        <i *ngIf="spinner == true"
+        class=" mx-2 fa-solid fa-spinner fa-spin"></i>
+      </button>
+    </div>
+    <p *ngIf="messageError" class="alert alert-danger mt-3">{{messageError}}</p>
+  </form>
+</section>

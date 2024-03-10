@@ -1,0 +1,17 @@
+sup{
+  left: 50%;
+  /* border: 1px solid #4fa74f; */
+  background-color: #4fa74f;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  border-radius: 50%;
+  font-size: 13px !important;
+}
+
+nav{
+
+  transition: 0.5s padding;
+}

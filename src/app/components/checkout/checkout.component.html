@@ -1,0 +1,29 @@
+<section class="bg-light shadow p-4 my-5">
+ <form [formGroup]="ChecOutValues" (ngSubmit)="checkOutPaymenCart()">
+  <div>
+    <label for="details">Details</label>
+    <input type="text" placeholder="Details....." class="form-control" formControlName="details" >
+    <div class="my-3 alert alert-danger" *ngIf="ChecOutValues.touched && ChecOutValues.errors">
+      <p class="" *ngIf="ChecOutValues.get('details')?.getError('required')">Input Details is Required</p>
+    </div>
+  </div>
+  <div>
+    <label for="Phone">Phone</label>
+    <input type="tel" id="Phone" placeholder="Phone....." class="form-control" formControlName="phone" >
+    <div class="alert alert-danger my-3" *ngIf="ChecOutValues.touched && ChecOutValues.errors">
+      <p  *ngIf="ChecOutValues.get('phone')?.getError('required')">Input Phone is Required</p>
+      <p  *ngIf="ChecOutValues.get('phone')?.getError('pattern')">Input Phone must be egyption Number</p>
+    </div>
+  </div>
+  <div>
+    <label for="City">City</label>
+    <input type="text" placeholder="City....." class="form-control" formControlName="city" >
+    <div class="alert alert-danger my-3" *ngIf="ChecOutValues.touched && ChecOutValues.errors">
+      <p *ngIf="ChecOutValues.get('city')?.getError('required')">Input City is Required</p>
+    </div>
+  </div>
+  <div class="text-center">
+    <button [disabled]="ChecOutValues.invalid" class="btn btn-outline-info text-center w-75 mx-auto my-3">Pay Now</button>
+  </div>
+ </form>
+</section>

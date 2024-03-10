@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+.nav-icon{
+    color:#4fa74f;
+    font-size: 32px;
+}
+.forget-password{
+  transition: .5s color;
+}
+.forget-password:hover{
+  color:#4fa74f;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.gold{
+  color: #daa520;
+}
+
+.coverPage{
+  transition: box-shadow .5s;
+
+}
+.coverPage:hover{
+box-shadow: 1px 1px 10px #11bd1168;
+}
+.main-btn{
+  border: none;
+  border-radius: 10px;
+  background-color: #4fa74f;
+  color: #fff;
+  transition: all .5s;
+  transform: translateY(300px);
+  opacity: 0;
+}
+.coverPage:hover .main-btn{
+  transform: translateY(0);
+  opacity: 1;
+
+}
+
+.spanColor{
+  color: #22db14;
+}
+.counter{
+  border: 1px solid #22db14;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.mt-6{
+  margin-top: 110px;
+}
+.design-icons{
+  top: 80%;
+  left: 70%;
+  bottom: 7% !important;
+}
+.coverPage:hover .design-icons{
+  transform: translateX(0%);
+  transition: 1s transform;
+}
+.iconsY{
+  position: absolute;
+  top: 0 !important;
+  left: 2% !important;
+}
+
+.design-icons{
+  transform: translateX(250%);
+
+}
+/* design img hover at home page and product */
+.hoverToImg1{
+  transition: .5s opacity;
+}
+.hoverToImg2{
+  height: 76.5%;
+  opacity: 0;
+  transform: translateX(-99%);
+  transition: .5s opacity;
+}
+.coverPage:hover .hoverToImg2{
+  opacity: 1;
+}
+.coverPage:hover .hoverToImg1{
+  opacity: 0;
+}

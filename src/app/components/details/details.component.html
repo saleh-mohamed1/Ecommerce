@@ -1,0 +1,38 @@
+<section class="row  align-items-center">
+<div class="col-md-4">
+  <!-- <div *ngFor="let item of prodectDetails.images">
+    <img [src]="item" class="w-100" alt="">
+  </div> -->
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let image of prodectDetails.images">
+      <ng-template carouselSlide>
+        <img [src]="image" class="w-100" [alt]="image" [title]="image">
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+</div>
+<div class="col-md-8">
+<div class="d-flex justify-content-between align-items-center">
+  <h3 class="h4">
+    {{prodectDetails.title}}
+  </h3>
+  <i class="d-flex fa-solid fa-heart h4"
+  (click)="wishListDataAddOrRemove()"
+  [style.color]="wishListData.includes(prodectDetails.id) ? 'red' : 'black' "
+  ></i>
+</div>
+<h4 class="h6"> {{prodectDetails.description}}</h4>
+<div class="d-flex justify-content-between mt-2">
+  <p>{{prodectDetails.price}} EGP</p>
+  <div class="">
+    <i class="fa-solid fa-star gold"></i> <span class="text-muted">{{prodectDetails.ratingsAverage}}</span>
+  </div>
+
+</div>
+<button style="background-color: #22db14; transition: background-color .5s;"
+(click)="addToCart(prodectDetails.id)"
+class="btn-details  text-white border-0 mt-3 rounded rounded-2 w-100"> + Add </button>
+
+</div>
+</section>

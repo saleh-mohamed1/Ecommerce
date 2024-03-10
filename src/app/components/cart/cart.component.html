@@ -1,0 +1,59 @@
+<section *ngIf="setdetailsCart.numOfCartItems > 0  " class="bg-light  py-3 rounded rounded-2 my-5">
+  <section class="row">
+    <div class="col-12">
+      <div class=" my-4 p-3">
+        <div class="d-flex my-4 justify-content-between">
+          <h1>Cart Shop</h1>
+          <button class="btn btn-primary" [routerLink]="['/checkOut' , setdetailsCart.data._id ]">Check Out</button>
+        </div>
+        <div class="d-flex my-4 px-3 justify-content-between">
+          <p class="fw-normal h4">Total price: <span class="spanColor">{{setdetailsCart.data.totalCartPrice | currency:' EGP '}}</span></p>
+          <p class="h4 fw-normal">Total number of items: <span class="spanColor">{{setdetailsCart.numOfCartItems}}</span></p>
+        </div>
+        <div class="row coverPage mx-2 my-3 p-3 align-items-center" *ngFor="let products of setdetailsCart.data.products">
+          <div class="col-md-2" >
+          <img [src]="products.product.imageCover" class="w-100" alt="">
+          </div>
+          <div class="col-md-10">
+            <div class="row align-items-center">
+              <div class="col-10">
+                <h4 class="h6 fw-normal">{{products.product.title}}</h4>
+                <p class="fw-normal my-1">{{products.price | currency:' EGP '}} </p>
+                <!-- <p class="fw-normal"> <span class="spanColor">Total Price</span> {{products.price | count: products.count }}.00 <span class="spanColor"> EGP </span></p> -->
+
+                <p class="fw-normal"> <span class="spanColor">Total Price</span> <span class="text-success mx-2">{{products.price| count: products.count |currency:' EGP ' }}</span> </p>
+                <button class="btn text-danger px-0 cursor-buttonointer" (click)="deleteItem(products.product._id , products.product.title.split(' ').slice(0,2).join(' '))">
+                  <i class="fa-solid fa-trash me-2  "></i> <span>Remove</span>
+                </button>
+              </div>
+              <div class="col-2">
+               <div class="d-flex  justify-content-between">
+                <div class="counter" (click)="changeQuantityOfProduct(products.product._id , products.count + 1)">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <div>
+                  <p class="h4 mx-1">{{products.count}}</p>
+                </div>
+                <div class="counter" (click)="changeQuantityOfProduct(products.product._id , products.count - 1)">
+                  <i class="fa-solid fa-minus"></i>
+                </div>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <footer class="text-center">
+      <button class="btn btn-outline-danger px-5" routerLink="/home" (click)="clearYourCart()">Clear Your Cart</button>
+    </footer>
+
+
+
+</section>
+
+<section *ngIf="setdetailsCart.numOfCartItems <= 0"  class="w-25 mx-auto mt-5 text-center">
+  <img src="./assets/images/11329060.png"  class="w-100" alt="">
+  <h2 class="text-danger">Your Cart is Empty</h2>
+</section>

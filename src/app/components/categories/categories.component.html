@@ -1,0 +1,24 @@
+<section class="row g-3 my-4">
+  <div class="col-md-4" *ngFor="let item of categoriesData">
+    <div class="card my-3 coverPage h-100" (click)="handleId(item._id , item.name)">
+      <img [src]="item.image" class="card-img-top w-100" height="300" alt="">
+      <div class="text-center">
+        <h1 class="text-success">{{item.name}}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="specificSubCategories" class="my-5">
+  <div class="text-center mt-2 mb-4">
+    <h1 class="text-success">{{stringMainName}} subcategories</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4 my-2" *ngFor="let item of categoriesSpecificData">
+      <div class="border border-1 text-center coverPage">
+        <h1 class="h3">{{item.name}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+

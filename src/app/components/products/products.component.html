@@ -1,0 +1,38 @@
+<div class="w-75 mx-auto my-3">
+  <input
+[(ngModel)]="serchInputValue"
+  type="search" class="form-control" placeholder="search....">
+</div>
+<section class="row g-3">
+  <div class="col-md-3 " *ngFor="let product of productsData | searchinput:serchInputValue ">
+    <div class="position-relative my-3 rounded rounded-2 p-2 overflow-hidden  coverPage cursor-pointer">
+     <div [routerLink]="['/details' , product._id]">
+     <div>
+      <img [src]="product.imageCover" class="w-100 hoverToImg1" [alt]="product.title">
+      <img [src]="product.images[0] || product.images[1]" class="hoverToImg2  w-100 position-absolute "  [alt]="product.title">
+     </div>
+      <div class="">
+        <h3 class="h5">{{product.category.name}}</h3>
+        <h4 class="h6">{{product.title | text}}</h4>
+      </div>
+      <div class="mt-3 d-flex justify-content-between">
+        <p>{{product.price}} EGP</p>
+        <div class="">
+          <i class="fa-solid fa-star gold"></i> <span class="text-muted">{{product.ratingsAverage}}</span>
+        </div>
+      </div>
+     </div>
+     <div class=" position-absolute design-icons  w-100 h-100   ">
+     <div class="w-25 h-25  iconsY d-flex justify-content-start  ">
+      <i
+      class="fa-solid fa-cart-shopping fs-2 d-block mx-1"
+      (click)="addCart(product._id)"
+      ></i>
+      <i (click)="colorIcon(product._id)"
+      [style.color]="wishListData.includes(product._id) ? 'red' : 'gray' "
+      class=" fa-solid fa-heart   fs-2 d-block mx-1"></i>
+     </div>
+    </div>
+    </div>
+  </div>
+</section>

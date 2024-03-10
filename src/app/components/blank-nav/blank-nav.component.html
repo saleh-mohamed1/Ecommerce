@@ -1,0 +1,52 @@
+
+<nav [ngClass]="isScroll?'py-2' : 'py-3' "
+[ngStyle]="{
+  'background-color':isScroll ?'#e9ecef':'rgba(0,0,0,.1)'
+}"
+class="navbar navbar-expand-lg ">
+  <div class="container align-items-center  justify-content-between">
+    <a class="navbar-brand" href="#">
+      <i class="fa-solid fa-cart-shopping nav-icon"></i>
+      <span>Fresh Cart</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+      <ul style="margin-right: 0px !important;" class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item ">
+          <a class="nav-link "  (click)="closeToggler()"  routerLinkActive="text-success fw-bold" routerLink="home" >Home</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  (click)="closeToggler()"  routerLinkActive="text-success fw-bold" routerLink="cart" >Cart</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  (click)="closeToggler()"  routerLinkActive="text-success fw-bold" routerLink="wish-list" >Wish list</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  (click)="closeToggler()"  routerLinkActive="text-success fw-bold" routerLink="products" >Products</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  (click)="closeToggler()"  routerLinkActive="text-success fw-bold" routerLink="categories" >Categories</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link "  (click)="closeToggler()"  routerLinkActive="text-success fw-bold" routerLink="brands" >Brands</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cart">
+            <i class="fa-solid position-relative fa-cart-shopping fs-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <sup class="position-absolute text-white">{{numOfCart}}</sup>
+            </i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link cursor-pointer" (click)="logOutUser()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">Log Out</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+

@@ -1,0 +1,13 @@
+<section class="p-4">
+  <h1>reset your account password</h1>
+  <form [formGroup]="verifyCode" (ngSubmit)="verifyCodeEmail()" class="form-floating mb-3">
+    <input type="tel" class="form-control" id="floatingInput" placeholder="Insert Your Code" formControlName="resetCode">
+    <div class="alert alert-danger" *ngIf="verifyCode.get('resetCode')?.touched &&verifyCode.get('resetCode')?.errors ">
+      <p>Chcek your emails that you get it (6 Numbers)</p>
+    </div>
+    <label for="floatingInput">Code</label>
+    <button class="btn btn-outline-success my-2">Verify</button>
+    <p class="text-danger">{{messegeErrors}}</p>
+  </form>
+
+</section>
